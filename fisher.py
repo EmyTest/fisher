@@ -1,4 +1,5 @@
-from flask import Flask
+from flask import Flask,make_response
+
 
 __author__ = 'mango'
 app = Flask(__name__)
@@ -6,7 +7,13 @@ app.config.from_object('config')
 
 @app.route('/hello')    #通过装饰器给hello函数 一个路由
 def hello():
-    return '<html>嘻嘻</html>'
+    headers = {
+        'content-type':'application/json',
+        'location':'http://www.bing.com'
+    }
+    response = make_response('<html></html>',301)
+    response.headers = headers
+    return '<html></html>',301,headers
 def helloo():
     return 'hello,mango ...'
 
