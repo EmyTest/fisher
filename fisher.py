@@ -5,15 +5,17 @@ __author__ = 'mango'
 app = Flask(__name__)
 app.config.from_object('config')
 
-@app.route('/hello')    #通过装饰器给hello函数 一个路由
-def hello():
-    headers = {
-        'content-type':'application/json',
-        'location':'http://www.bing.com'
-    }
-    response = make_response('<html></html>',301)
-    response.headers = headers
-    return '<html></html>',301,headers
+@app.route('/book/search')    #通过装饰器给hello函数 一个路由
+def search():
+    """
+    q
+    start
+    count
+    isbn
+
+    """
+
+    pass
 def helloo():
     return 'hello,mango ...'
 
